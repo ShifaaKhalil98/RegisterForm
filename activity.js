@@ -77,3 +77,24 @@ function display_prime() {
     text_2.innerText = "";
   }
 }
+function reverse_num(value) {
+  var _array = [];
+  for (i = 0; i < value.length; i++) {
+    if (typeof value[i] == Number) {
+      _array.push(value[i]);
+    }
+  }
+  sort_array(_array);
+  for (j = 0; j < value.length; j++) {
+    if (typeof value[j] == Number) {
+      value[j] = _array[0];
+      _array.shift();
+    }
+  }
+  return value;
+}
+function display_reversed() {
+  var input = prompt("Enter any string that does or does not contain numbers");
+  text_1.innerText = "Your input is " + input;
+  text_2.innerText = "The result is " + reverse_num(reverse_num);
+}
