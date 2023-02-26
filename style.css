@@ -48,3 +48,7 @@ input {
   color: white;
   margin-bottom: 50px;
 }
+.container2 {
+  display: flex;
+  justify-content: space-around;
+}
