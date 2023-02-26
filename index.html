@@ -9,17 +9,24 @@
   </head>
   <body>
     <div class="container">
-      <form name="myForm">
+      <form name="myForm" autocomplete="on">
         <p>Email</p>
-        <input type="text" id="email" />
+        <input type="text" id="email" placeholder="user@hotmail.com" />
         <p>Password</p>
-        <input type="text" id="pwd" />
+        <input type="text" id="pwd" placeholder="Enter at least 8 characters" />
+        <p>Confirm Password</p>
+        <input
+          type="text"
+          id="confirm-pwd"
+          placeholder="Enter at least 8 characters"
+        />
         <p>Year of Birth</p>
         <input type="date" id="year" />
-        <p>Password</p>
-        <input type="text" id="pwd" />
+        <!-- <p>Password</p>
+        <input type="text" id="pwd" /> -->
         <button id="submit">Submit</button>
       </form>
+      <p id="test"></p>
     </div>
     <script src="new.js" type="text/javascript"></script>
   </body>
