@@ -5,26 +5,18 @@
 //     this.crdt = crdt;
 //   }
 // }
-// const save_data = (ev) => {
-//   ev.preventDefault();
-// var data = {
-//   email: _email,
-//   password: _password,
-//   year: _year,
-// };
-// alert("done");
-// _test.textContent = JSON.stringify(data);
-// };
-
-// const form = document.querySelector("form");
-// form.addEventListener("submit", save_data);
 submit_btn = document.getElementById("submit");
+submit_btn.disabled = false;
 submit_btn.addEventListener("click", validate_form);
+var scroll_btn = document.getElementById("scroll-btn");
+scroll_btn.addEventListener("click", function () {
+  window.scrollBy(0, 600);
+});
 function validate_form() {
   var _email = document.forms["myForm"]["email"].value;
   var _password = document.forms["myForm"]["pwd"].value;
   var confirm_password = document.forms["myForm"]["confirm-pwd"].value;
-  var _year = document.forms["myForm"]["year"].value;
+  var _year = document.forms["myForm"]["year"].value.getFullYear;
   var strong_password = new RegExp("^(?=.*[!@#$%^&*])(?=.*[A-Z])(?=.*[0-9])");
   if (_email == "") {
     alert("Email is required!");
@@ -65,16 +57,22 @@ function validate_form() {
     return false;
   } else {
     alert("Successfully Registered");
-    window.scrollBy(0, 550);
+    sort_btn.disabled = false;
+    palindrome_btn.disabled = false;
+    prime_btn.disabled = false;
+    reverse_btn.disabled = false;
+    suffix_btn.disabled = false;
+    scroll_btn.innerText = "Let's do some activities";
+    window.scrollBy(0, 180);
+    submit_btn.disabled = true;
+    var data = {
+      email: _email,
+      password: _password,
+      year: _year,
+    };
+    const obj = JSON.sparse(data);
   }
 }
-// function save_data(event) {
-//   event.preventDefault();
-//   const data = new FormData(event.target);
-//   const value = data.get("email");
-//   _test.innerHTML = value;
-// }
-
 //Part-2
 sort_btn = document.getElementById("sortArray");
 palindrome_btn = document.getElementById("palindrome");
@@ -85,12 +83,17 @@ var text_1 = document.getElementById("text1");
 var text_2 = document.getElementById("text2");
 var current_date = new Date();
 var current_year = current_date.getFullYear();
+sort_btn.disabled = true;
+palindrome_btn.disabled = true;
+prime_btn.disabled = true;
+reverse_btn.disabled = true;
+suffix_btn.disabled = true;
 //Listeners
 sort_btn.addEventListener("click", display_sorted);
 palindrome_btn.addEventListener("click", display_palindrome);
 prime_btn.addEventListener("click", display_prime);
 reverse_btn.addEventListener("click", display_reversed);
-// suffix_btn.addEventListener("click");
+suffix_btn.addEventListener("click", display_suffix);
 //Functions
 function sort_array(num) {
   for (i = 0; i < num.length; i++) {
@@ -144,7 +147,7 @@ function is_prime(num) {
 }
 function display_prime() {
   do {
-    year_of_birth = prompt("Which year were you born?");
+    year_of_birth = prompt("Which year were you born in?");
     age = current_year - year_of_birth;
   } while (current_year < year_of_birth);
   if (is_prime(age)) {
@@ -173,4 +176,26 @@ function display_reversed() {
   var input = prompt("Enter any string that does or does not contain numbers");
   text_1.innerText = "Your input is " + input;
   text_2.innerText = "The result is " + reverse_num(input);
+}
+function add_suffix(str) {
+  const vowels = [a, e, u, i, o];
+  var result = "";
+  outerloop: for (i = 0; i < str.length; i++) {
+    for (j = 0; j < vowels.length; j++) {
+      if (str[0] == vowels[j]) {
+        break outerloop;
+      }
+    }
+    result += str[i];
+  }
+  for (k = 0; k < str.length; k++) {
+    str[k] = str[k + result.length];
+  }
+  str = str + result + "ay";
+  return str;
+}
+function display_suffix() {
+  var input = prompt("Give any word");
+  text_1.innerText = "Your input is " + input;
+  text_2.innerText = "The result is " + add_suffix(input);
 }
