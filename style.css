@@ -1,22 +1,18 @@
+body {
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
 #main {
   margin: 0;
-  padding: 30px;
+  padding: 50px;
   background: url(bg3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
+  height: fit-content;
+  width: 100%;
 }
-#activity {
-  margin: 0;
-  padding: 30px;
-  /* background: url(bg3.jpg); */
-  background-color: rgb(85, 4, 4);
-  /* background-size: cover;
-  background-repeat: no-repeat; */
-  height: 100%;
-  color: white;
-}
-.container {
+.container1 {
   padding: 50px 150px;
   display: flex;
   flex-direction: column;
@@ -27,7 +23,14 @@
   font-size: 20px;
 }
 input {
-  height: 25px;
+  height: fit-content;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#gender {
+  height: fit-content;
   width: 100%;
   display: block;
   margin-left: auto;
@@ -48,7 +51,32 @@ input {
   color: white;
   margin-bottom: 50px;
 }
+#activity {
+  margin: 0;
+  padding: 30px 0;
+  background-color: rgb(163, 55, 34);
+  box-shadow: 0 -10px 10px 10px rgb(163, 55, 34);
+  width: 100%;
+  height: 550px;
+  color: black;
+}
 .container2 {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+.btn {
+  width: 13%;
+  height: 50px;
+  margin: 30px 30px;
+  background-color: white;
+  border: 1px solid black;
+}
+.text {
+  text-align: center;
+  padding: 50px 0;
+  width: 40%;
+  height: 200px;
+  display: block;
+  margin: 50px auto;
+  background-color: white;
 }
