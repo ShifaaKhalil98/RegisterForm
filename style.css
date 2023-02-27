@@ -105,17 +105,23 @@ a {
   height: 100%;
   font-size: 20px;
   text-align: center;
-  background-color: rgba(163, 55, 34, 0.7);
+  background-color: rgba(163, 55, 34, 0.9);
 }
 #start {
   margin-top: 30px;
   height: 30px;
 }
-.course-form {
-  width: 200px;
+#course-form {
+  width: 250px;
   display: flex;
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 30px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.course-form {
+  width: 100%;
+  border-bottom: 2px solid white;
+  padding-bottom: 50px;
 }

@@ -13,7 +13,7 @@
       <div>
         <h2>Do you still remember your ip addres?</h2>
         <h2>Here it is: <span id="ip"></span></h2>
-        <p>Let's calculate the sum of the even numbers in it</p>
+        <p>Let's calculate the sum of its even digits</p>
         <button id="calculate">Calculate</button>
         <p id="sum"></p>
       </div>
@@ -22,18 +22,25 @@
       <h3>(Go to our website and choose your course)</h3>
       <h2 id="heading">Course Registering Form</h2>
       <div class="course-form">
-        <p>Title</p>
-        <input type="text" id="title" />
-        <p>Code</p>
-        <input type="text" id="code" />
-        <p>Number of Credits</p>
-        <select id="crdts">
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-        </select>
-        <button type="button" id="submit-course" class="sub">Submit</button>
+        <form id="course-form">
+          <p>Title</p>
+          <input type="text" id="title" />
+          <p>Code</p>
+          <input type="text" id="code" />
+          <p>Number of Credits</p>
+          <select id="crdt">
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+          </select>
+          <button type="button" id="submit-course" class="sub">Submit</button>
+        </form>
+      </div>
+      <div class="text">
+        <h2>Successfully registered</h2>
+        <h2 id="course-details"></h2>
+        <button id="to-the-top">Go to the top</button>
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

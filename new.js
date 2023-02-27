@@ -1,10 +1,3 @@
-// class Course {
-//   constructor(title, code, crdt) {
-//     this.title = title;
-//     this.code = code;
-//     this.crdt = crdt;
-//   }
-// }
 submit_btn = document.getElementById("submit");
 submit_btn.disabled = false;
 submit_btn.addEventListener("click", validate_form);
