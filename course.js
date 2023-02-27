@@ -55,7 +55,6 @@ calculate_btn = document.getElementById("calculate");
 calculate_btn.addEventListener("click", display_sum);
 _div = document.getElementById("container");
 _div.style.display = "none";
-document.getElementById("sum").style.display = "none";
 start_btn.addEventListener("click", function () {
   _div.style.display = "block";
   start_btn.style.display = "none";
@@ -71,8 +70,5 @@ function sum_even(number) {
   return sum;
 }
 function display_sum() {
-  document.getElementById("sum").style.display = "block";
-
-  //   _ip = document.getElementById("ip").innerText;
   document.getElementById("sum").innerText = "The sum is " + sum_even(_ip);
 }
