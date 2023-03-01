@@ -89,20 +89,30 @@ reverse_btn.addEventListener("click", display_reversed);
 suffix_btn.addEventListener("click", display_suffix);
 //Functions
 function sort_array(num) {
-  for (i = 0; i < num.length; i++) {
-    for (j = 0; j < num.length - i - 1; j++) {
-      if (num[j + 1] < num[j]) {
-        var k = num[j];
-        num[j] = num[j + 1];
-        num[j + 1] = k;
+  var new_array = [];
+  len = num.length;
+  for (i = 0; i < len; i++) {
+    var min = num[0];
+    var index = 0;
+    for (j = 0; j < num.length; j++) {
+      if (num[j] < min) {
+        min = num[j];
+        index = j;
       }
     }
+    num.splice(index, index);
+    new_array.push(min);
+    // if (num[j + 1] < num[j]) {
+    //   let k = num[j];
+    //   num[j] = num[j + 1];
+    //   num[j + 1] = k;
+    // }
   }
-  return num;
+  return new_array;
 }
 function display_sorted() {
   var numbers = [];
-  for (i = 0; i < 10; i++) {
+  for (i = 0; i < 3; i++) {
     value = prompt("Enter any number");
     numbers.push(value);
   }
@@ -153,15 +163,21 @@ function display_prime() {
 }
 function reverse_num(value) {
   var _array = [];
-  for (i = 0; i < value.length; i++) {
-    if (typeof value[i] == "number") {
+  var index = [];
+  for (var i = 0; i < value.length; i++) {
+    if (isNaN(value[i]) == false) {
       _array.push(value[i]);
+      index.push(i);
     }
   }
-  for (j = 0; j < value.length; j++) {
-    if (typeof value[j] == "number") {
-      value[j] = _array.pop();
+  String.prototype.replaceAt = function (index, replacement) {
+    if (index >= this.length) {
+      return this.valueOf();
     }
+    return this.substring(0, index) + replacement + this.substring(index + 1);
+  };
+  for (var j = 0; j < index.length; j++) {
+    value = value.replaceAt(index[j], _array.pop());
   }
   return value;
 }
