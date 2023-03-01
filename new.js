@@ -58,12 +58,12 @@ function validate_form() {
     scroll_btn.innerText = "Let's do some activities";
     window.scrollBy(0, 180);
     submit_btn.disabled = true;
-    var data = {
-      email: _email,
-      password: _password,
-      year: _year,
-    };
-    const obj = JSON.sparse(data);
+    // var data = {
+    //   email: _email,
+    //   password: _password,
+    //   year: _year,
+    // };
+    // const obj = JSON.sparse(data);
   }
 }
 //Part-2
@@ -161,6 +161,12 @@ function display_prime() {
     text_2.innerText = "";
   }
 }
+String.prototype.replaceAt = function (index, replacement) {
+  if (index >= this.length) {
+    return this.valueOf();
+  }
+  return this.substring(0, index) + replacement + this.substring(index + 1);
+};
 function reverse_num(value) {
   var _array = [];
   var index = [];
@@ -170,12 +176,6 @@ function reverse_num(value) {
       index.push(i);
     }
   }
-  String.prototype.replaceAt = function (index, replacement) {
-    if (index >= this.length) {
-      return this.valueOf();
-    }
-    return this.substring(0, index) + replacement + this.substring(index + 1);
-  };
   for (var j = 0; j < index.length; j++) {
     value = value.replaceAt(index[j], _array.pop());
   }
@@ -186,21 +186,29 @@ function display_reversed() {
   text_1.innerText = "Your input is " + input;
   text_2.innerText = "The result is " + reverse_num(input);
 }
+String.prototype.replaceUntil = function (index, replacement) {
+  if (index >= this.length) {
+    return this.valueOf() + replacement;
+  }
+  return replacement + this.substring(index + 1);
+};
 function add_suffix(str) {
-  const vowels = [a, e, u, i, o];
-  var result = "";
+  const vowels = ["a", "e", "u", "i", "o"];
+  var result = [];
   outerloop: for (i = 0; i < str.length; i++) {
     for (j = 0; j < vowels.length; j++) {
-      if (str[0] == vowels[j]) {
+      if (str[i] == vowels[j]) {
         break outerloop;
       }
     }
-    result += str[i];
+    result.push(str[i]);
+    var index = i;
   }
-  for (k = 0; k < str.length; k++) {
-    str[k] = str[k + result.length];
+  str = str.replaceUntil(index, "");
+  for (k = 0; k < result.length; k++) {
+    str = str.replaceUntil(str.length, result[k]);
   }
-  str = str + result + "ay";
+  str = str.replaceUntil(str.length, "ay");
   return str;
 }
 function display_suffix() {
